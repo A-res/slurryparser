@@ -17,15 +17,13 @@ def parse(html):
         f = re.findall(r'"(.*?)"', f)
         print(f)
         titles_list.append(f)
-    #print(titles_list)
 
-
-    #title=grid.find('h3')
-    #print(grid)
-#[f.find('title')+2:]
 def main():
-    parse(get_html('https://vapeliga.ru/zhidkosti_usa/filter/clear/apply/?PAGEN_1=4'))
-    #print(parse)
-
+    adress_def = 'https://vapeliga.ru/zhidkosti_usa/'
+    for p in range(31):
+      adress=adress_def+('filter/clear/apply/?PAGEN_1='+str(p))
+      parse(get_html(adress))
+      print(adress)
+      #print(parse)
 if __name__ == '__main__':
     main()
