@@ -19,11 +19,17 @@ def parse(html):
         titles_list.append(f)
 
 def main():
-    adress_def = 'https://vapeliga.ru/zhidkosti_usa/'
+    adress_def = 'https://vapeliga.ru/'
     for p in range(31):
-      adress=adress_def+('filter/clear/apply/?PAGEN_1='+str(p))
+      adress=adress_def+('zhidkosti_usa/filter/clear/apply/?PAGEN_1='+str(p))
       parse(get_html(adress))
       print(adress)
+
+      for k in range (61):
+          adress = adress_def + ('zhidkosti_rossiya/filter/clear/apply/?PAGEN_1=' + str(k))
+          parse(get_html(adress))
+          print(adress)
+
       #print(parse)
 if __name__ == '__main__':
     main()
