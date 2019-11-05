@@ -25,6 +25,14 @@ def parse(html):
        # print(f)
         titles_list.append(f)
         save(f, 'slurries.csv')
+        
+def connectDB(db_file):
+ conn = None
+    try:
+        conn = sqlite3.connect(db_file)
+    except Error as e:
+        print(e)
+    return conn
 
 def main():
     adress_def = 'https://vapeliga.ru/'
